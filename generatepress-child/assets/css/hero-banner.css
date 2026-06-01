@@ -845,3 +845,44 @@ html {
 #main-content {
     scroll-margin-top: 80px;
 }
+
+/* ============================================
+   HOMEPAGE - NO SIDEBAR / FULL WIDTH
+   ============================================ */
+.home .site-main-content,
+.front-page .site-main-content,
+.full-width-content .site-main-content {
+    max-width: 100%;
+    width: 100%;
+}
+
+.home #primary,
+.front-page #primary,
+.full-width-content #primary,
+.home .content-area,
+.front-page .content-area,
+.full-width-content .content-area {
+    width: 100% !important;
+    max-width: 100% !important;
+    float: none !important;
+    margin: 0 auto;
+}
+
+.home .site-content,
+.front-page .site-content {
+    display: block !important;
+}
+
+/* Hide sidebar completely on homepage */
+.home #right-sidebar,
+.home #left-sidebar,
+.home .widget-area,
+.front-page #right-sidebar,
+.front-page #left-sidebar,
+.front-page .widget-area,
+.no-sidebar #right-sidebar,
+.no-sidebar #left-sidebar,
+.no-sidebar .widget-area {
+    display: none !important;
+    width: 0 !important;
+}

@@ -1,19 +1,6 @@
-/**
- * ============================================
- * TECH BLOG - GLOBAL CUSTOM STYLES
- * Applies site-wide styling enhancements
- * ============================================
- */
-
-/* ============================================
-   CSS VARIABLES - GLOBAL
-   ============================================ */
 :root {
-    /* Font Families */
     --font-primary: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
     --font-mono: 'JetBrains Mono', 'Fira Code', 'SF Mono', Monaco, 'Courier New', monospace;
-
-    /* Colors - Tech Theme */
     --color-primary: #6366f1;
     --color-primary-dark: #4f46e5;
     --color-primary-light: #818cf8;
@@ -21,32 +8,21 @@
     --color-accent: #10b981;
     --color-warning: #f59e0b;
     --color-danger: #ef4444;
-
-    /* Gradients */
     --gradient-primary: linear-gradient(135deg, #6366f1 0%, #06b6d4 50%, #10b981 100%);
     --gradient-dark: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
-
-    /* Spacing */
     --spacing-xs: 0.5rem;
     --spacing-sm: 1rem;
     --spacing-md: 1.5rem;
     --spacing-lg: 2rem;
     --spacing-xl: 3rem;
-
-    /* Border Radius */
     --radius-sm: 6px;
     --radius-md: 12px;
     --radius-lg: 16px;
     --radius-full: 9999px;
-
-    /* Transitions */
     --transition-fast: 0.15s ease;
     --transition-normal: 0.3s ease;
 }
 
-/* ============================================
-   GLOBAL FONT APPLICATION
-   ============================================ */
 body,
 html {
     font-family: var(--font-primary) !important;
@@ -55,12 +31,7 @@ html {
     text-rendering: optimizeLegibility;
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
+h1, h2, h3, h4, h5, h6,
 .entry-title,
 .site-title,
 .widget-title {
@@ -69,37 +40,24 @@ h6,
     letter-spacing: -0.02em;
 }
 
-code,
-pre,
-.code,
-kbd,
-samp,
-.wp-block-code {
+code, pre, .code, kbd, samp, .wp-block-code {
     font-family: var(--font-mono) !important;
 }
 
-/* ============================================
-   GLOBAL ENHANCEMENTS
-   ============================================ */
-
-/* Smooth Scrolling */
 html {
     scroll-behavior: smooth;
 }
 
-/* Better Text Selection */
 ::selection {
     background: var(--color-primary);
     color: white;
 }
 
-/* Focus States for Accessibility */
 *:focus-visible {
     outline: 2px solid var(--color-primary);
     outline-offset: 2px;
 }
 
-/* Link Styling */
 a {
     color: var(--color-primary);
     transition: color var(--transition-fast);
@@ -109,7 +67,6 @@ a:hover {
     color: var(--color-primary-dark);
 }
 
-/* Better Button Styling */
 button,
 .button,
 input[type="submit"] {
@@ -117,7 +74,6 @@ input[type="submit"] {
     transition: all var(--transition-normal);
 }
 
-/* Code Block Improvements */
 pre {
     border-radius: var(--radius-md);
     overflow-x: auto;

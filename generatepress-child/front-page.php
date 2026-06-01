@@ -1,20 +1,12 @@
 <?php
-
-/**
- * Template Name: Homepage
- *
- */
-
 if (!defined('ABSPATH')) {
-    exit; // Exit if accessed directly.
+    exit;
 }
 
 get_header();
 ?>
 
-<!-- Hero Banner Section -->
 <section class="hero-banner" id="hero">
-    <!-- Background Animation Layer -->
     <div class="hero-bg-animation">
         <div class="floating-shapes">
             <div class="shape shape-1"></div>
@@ -26,15 +18,12 @@ get_header();
         <div class="grid-overlay"></div>
     </div>
 
-    <!-- Main Content -->
     <div class="hero-content">
-        <!-- Badge -->
         <div class="hero-badge">
             <span class="badge-icon">🚀</span>
             <span class="badge-text">Tech • Code • AI</span>
         </div>
 
-        <!-- Title with Typing Effect -->
         <h1 class="hero-title">
             <span class="title-line">Exploring the Future of</span>
             <span class="title-highlight">
@@ -43,13 +32,11 @@ get_header();
             </span>
         </h1>
 
-        <!-- Description -->
         <p class="hero-description">
             Dive into the world of cutting-edge technology, programming tutorials,
             and AI innovations. Your journey to becoming a tech expert starts here.
         </p>
 
-        <!-- Stats Counter -->
         <div class="hero-stats">
             <div class="stat-item">
                 <span class="stat-icon">📚</span>
@@ -68,7 +55,6 @@ get_header();
             </div>
         </div>
 
-        <!-- Call to Action Buttons -->
         <div class="hero-cta">
             <a href="#main-content" class="btn-primary">
                 <span>Explore Articles</span>
@@ -81,7 +67,6 @@ get_header();
             </a>
         </div>
 
-        <!-- Tech Tags -->
         <div class="hero-tags">
             <span class="tag">Python</span>
             <span class="tag">JavaScript</span>
@@ -92,7 +77,6 @@ get_header();
         </div>
     </div>
 
-    <!-- Code Window Visual -->
     <div class="hero-visual">
         <div class="code-window">
             <div class="window-header">
@@ -112,7 +96,6 @@ get_header();
             </div>
         </div>
 
-        <!-- Floating Tech Icons -->
         <div class="floating-icons">
             <div class="icon-float icon-1">⚛️</div>
             <div class="icon-float icon-2">🐍</div>
@@ -122,7 +105,6 @@ get_header();
         </div>
     </div>
 
-    <!-- Scroll Indicator -->
     <div class="scroll-indicator">
         <span>Scroll to explore</span>
         <div class="scroll-arrow">
@@ -133,7 +115,6 @@ get_header();
     </div>
 </section>
 
-<!-- Main Content Area -->
 <div id="main-content" class="site-main-content">
     <div <?php generate_do_attr('content'); ?>>
         <main <?php generate_do_attr('main'); ?>>
@@ -142,12 +123,6 @@ get_header();
 
             if (generate_has_default_loop()) {
                 if (have_posts()) :
-
-                    /**
-                     * generate_before_loop hook.
-                     *
-                     * @since 3.1.0
-                     */
                     do_action('generate_before_loop', 'index');
 
                     while (have_posts()) :
@@ -155,28 +130,16 @@ get_header();
                         generate_do_template_part('index');
                     endwhile;
 
-                    /**
-                     * generate_after_loop hook.
-                     *
-                     * @since 2.3
-                     */
                     do_action('generate_after_loop', 'index');
-
                 else :
                     generate_do_template_part('none');
                 endif;
             }
-            
+
             do_action('generate_after_main_content');
             ?>
         </main>
     </div>
-
-    <?php    
-    do_action('generate_after_primary_content_area');
-
-    generate_construct_sidebars();
-    ?>
 </div>
 
 <?php
