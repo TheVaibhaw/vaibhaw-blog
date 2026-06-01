@@ -1,0 +1,622 @@
+/**
+ * GeneratePress Child Theme - Custom Styles
+ *
+ * @package    GeneratePress_Child
+ * @author     Your Name
+ * @copyright  2026 Your Name
+ * @license    GPL-2.0-or-later
+ * @version    1.0.0
+ */
+
+/* ==========================================================================
+   1. CSS Custom Properties (Variables)
+   ========================================================================== */
+
+:root {
+    /* Color Palette */
+    --gp-child-primary: #2563eb;
+    --gp-child-primary-hover: #1d4ed8;
+    --gp-child-primary-light: #dbeafe;
+    --gp-child-secondary: #64748b;
+    --gp-child-secondary-hover: #475569;
+    --gp-child-accent: #f59e0b;
+    --gp-child-accent-hover: #d97706;
+
+    /* Neutral Colors */
+    --gp-child-white: #ffffff;
+    --gp-child-black: #000000;
+    --gp-child-gray-50: #f8fafc;
+    --gp-child-gray-100: #f1f5f9;
+    --gp-child-gray-200: #e2e8f0;
+    --gp-child-gray-300: #cbd5e1;
+    --gp-child-gray-400: #94a3b8;
+    --gp-child-gray-500: #64748b;
+    --gp-child-gray-600: #475569;
+    --gp-child-gray-700: #334155;
+    --gp-child-gray-800: #1e293b;
+    --gp-child-gray-900: #0f172a;
+
+    /* Semantic Colors */
+    --gp-child-success: #22c55e;
+    --gp-child-warning: #f59e0b;
+    --gp-child-error: #ef4444;
+    --gp-child-info: #3b82f6;
+
+    /* Typography */
+    --gp-child-font-primary: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    --gp-child-font-secondary: Georgia, 'Times New Roman', serif;
+    --gp-child-font-mono: ui-monospace, SFMono-Regular, 'SF Mono', Consolas, monospace;
+
+    /* Font Sizes (Fluid Typography) */
+    --gp-child-text-xs: clamp(0.75rem, 0.7rem + 0.25vw, 0.875rem);
+    --gp-child-text-sm: clamp(0.875rem, 0.8rem + 0.375vw, 1rem);
+    --gp-child-text-base: clamp(1rem, 0.9rem + 0.5vw, 1.125rem);
+    --gp-child-text-lg: clamp(1.125rem, 1rem + 0.625vw, 1.25rem);
+    --gp-child-text-xl: clamp(1.25rem, 1.1rem + 0.75vw, 1.5rem);
+    --gp-child-text-2xl: clamp(1.5rem, 1.3rem + 1vw, 2rem);
+    --gp-child-text-3xl: clamp(1.875rem, 1.5rem + 1.875vw, 2.5rem);
+    --gp-child-text-4xl: clamp(2.25rem, 1.75rem + 2.5vw, 3rem);
+
+    /* Line Heights */
+    --gp-child-leading-none: 1;
+    --gp-child-leading-tight: 1.25;
+    --gp-child-leading-snug: 1.375;
+    --gp-child-leading-normal: 1.5;
+    --gp-child-leading-relaxed: 1.625;
+    --gp-child-leading-loose: 2;
+
+    /* Spacing Scale */
+    --gp-child-space-1: 0.25rem;
+    --gp-child-space-2: 0.5rem;
+    --gp-child-space-3: 0.75rem;
+    --gp-child-space-4: 1rem;
+    --gp-child-space-5: 1.25rem;
+    --gp-child-space-6: 1.5rem;
+    --gp-child-space-8: 2rem;
+    --gp-child-space-10: 2.5rem;
+    --gp-child-space-12: 3rem;
+    --gp-child-space-16: 4rem;
+    --gp-child-space-20: 5rem;
+    --gp-child-space-24: 6rem;
+
+    /* Border Radius */
+    --gp-child-radius-sm: 0.25rem;
+    --gp-child-radius: 0.375rem;
+    --gp-child-radius-md: 0.5rem;
+    --gp-child-radius-lg: 0.75rem;
+    --gp-child-radius-xl: 1rem;
+    --gp-child-radius-2xl: 1.5rem;
+    --gp-child-radius-full: 9999px;
+
+    /* Shadows */
+    --gp-child-shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+    --gp-child-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+    --gp-child-shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+    --gp-child-shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+    --gp-child-shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+
+    /* Transitions */
+    --gp-child-transition-fast: 150ms ease;
+    --gp-child-transition: 200ms ease;
+    --gp-child-transition-slow: 300ms ease;
+
+    /* Z-Index Scale */
+    --gp-child-z-dropdown: 100;
+    --gp-child-z-sticky: 200;
+    --gp-child-z-fixed: 300;
+    --gp-child-z-modal-backdrop: 400;
+    --gp-child-z-modal: 500;
+    --gp-child-z-tooltip: 600;
+
+    /* Container Widths */
+    --gp-child-container-sm: 640px;
+    --gp-child-container-md: 768px;
+    --gp-child-container-lg: 1024px;
+    --gp-child-container-xl: 1280px;
+    --gp-child-container-2xl: 1536px;
+}
+
+/* Dark Mode Support */
+@media (prefers-color-scheme: dark) {
+    :root {
+        --gp-child-primary: #3b82f6;
+        --gp-child-primary-hover: #60a5fa;
+        --gp-child-primary-light: #1e3a5f;
+    }
+}
+
+/* ==========================================================================
+   2. Base Styles & Resets
+   ========================================================================== */
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+html {
+    -webkit-text-size-adjust: 100%;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+body.gp-child-theme {
+    font-family: var(--gp-child-font-primary);
+    font-size: var(--gp-child-text-base);
+    line-height: var(--gp-child-leading-normal);
+    color: var(--gp-child-gray-800);
+}
+
+/* Focus Styles for Accessibility */
+:focus-visible {
+    outline: 2px solid var(--gp-child-primary);
+    outline-offset: 2px;
+}
+
+:focus:not(:focus-visible) {
+    outline: none;
+}
+
+/* ==========================================================================
+   3. Typography Enhancements
+   ========================================================================== */
+
+.gp-child-theme h1,
+.gp-child-theme h2,
+.gp-child-theme h3,
+.gp-child-theme h4,
+.gp-child-theme h5,
+.gp-child-theme h6 {
+    font-weight: 700;
+    line-height: var(--gp-child-leading-tight);
+    color: var(--gp-child-gray-900);
+}
+
+.gp-child-theme h1 {
+    font-size: var(--gp-child-text-4xl);
+    margin-bottom: var(--gp-child-space-6);
+}
+
+.gp-child-theme h2 {
+    font-size: var(--gp-child-text-3xl);
+    margin-bottom: var(--gp-child-space-5);
+}
+
+.gp-child-theme h3 {
+    font-size: var(--gp-child-text-2xl);
+    margin-bottom: var(--gp-child-space-4);
+}
+
+.gp-child-theme h4 {
+    font-size: var(--gp-child-text-xl);
+    margin-bottom: var(--gp-child-space-3);
+}
+
+.gp-child-theme p {
+    margin-bottom: var(--gp-child-space-4);
+}
+
+.gp-child-theme a {
+    color: var(--gp-child-primary);
+    text-decoration: none;
+    transition: color var(--gp-child-transition-fast);
+}
+
+.gp-child-theme a:hover,
+.gp-child-theme a:focus {
+    color: var(--gp-child-primary-hover);
+    text-decoration: underline;
+}
+
+/* ==========================================================================
+   4. Layout Components
+   ========================================================================== */
+
+/* Container */
+.gp-child-container {
+    width: 100%;
+    max-width: var(--gp-child-container-xl);
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: var(--gp-child-space-4);
+    padding-right: var(--gp-child-space-4);
+}
+
+@media (min-width: 768px) {
+    .gp-child-container {
+        padding-left: var(--gp-child-space-6);
+        padding-right: var(--gp-child-space-6);
+    }
+}
+
+/* Grid System */
+.gp-child-grid {
+    display: grid;
+    gap: var(--gp-child-space-6);
+}
+
+.gp-child-grid-2 {
+    grid-template-columns: repeat(1, 1fr);
+}
+
+.gp-child-grid-3 {
+    grid-template-columns: repeat(1, 1fr);
+}
+
+.gp-child-grid-4 {
+    grid-template-columns: repeat(1, 1fr);
+}
+
+@media (min-width: 640px) {
+    .gp-child-grid-2 {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .gp-child-grid-3 {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .gp-child-grid-4 {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (min-width: 1024px) {
+    .gp-child-grid-3 {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .gp-child-grid-4 {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+/* Flexbox Utilities */
+.gp-child-flex {
+    display: flex;
+}
+
+.gp-child-flex-center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.gp-child-flex-between {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+/* ==========================================================================
+   5. Component Styles
+   ========================================================================== */
+
+/* Buttons */
+.gp-child-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--gp-child-space-2);
+    padding: var(--gp-child-space-3) var(--gp-child-space-6);
+    font-family: inherit;
+    font-size: var(--gp-child-text-sm);
+    font-weight: 600;
+    line-height: var(--gp-child-leading-tight);
+    text-decoration: none;
+    border: none;
+    border-radius: var(--gp-child-radius-md);
+    cursor: pointer;
+    transition: all var(--gp-child-transition-fast);
+}
+
+.gp-child-btn:hover,
+.gp-child-btn:focus {
+    text-decoration: none;
+}
+
+.gp-child-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.gp-child-btn-primary {
+    background-color: var(--gp-child-primary);
+    color: var(--gp-child-white);
+}
+
+.gp-child-btn-primary:hover,
+.gp-child-btn-primary:focus {
+    background-color: var(--gp-child-primary-hover);
+    color: var(--gp-child-white);
+}
+
+.gp-child-btn-secondary {
+    background-color: var(--gp-child-secondary);
+    color: var(--gp-child-white);
+}
+
+.gp-child-btn-secondary:hover,
+.gp-child-btn-secondary:focus {
+    background-color: var(--gp-child-secondary-hover);
+    color: var(--gp-child-white);
+}
+
+.gp-child-btn-outline {
+    background-color: transparent;
+    color: var(--gp-child-primary);
+    border: 2px solid var(--gp-child-primary);
+}
+
+.gp-child-btn-outline:hover,
+.gp-child-btn-outline:focus {
+    background-color: var(--gp-child-primary);
+    color: var(--gp-child-white);
+}
+
+/* Cards */
+.gp-child-card {
+    background-color: var(--gp-child-white);
+    border-radius: var(--gp-child-radius-lg);
+    box-shadow: var(--gp-child-shadow-md);
+    overflow: hidden;
+    transition: transform var(--gp-child-transition), box-shadow var(--gp-child-transition);
+}
+
+.gp-child-card:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--gp-child-shadow-lg);
+}
+
+.gp-child-card-body {
+    padding: var(--gp-child-space-6);
+}
+
+.gp-child-card-title {
+    font-size: var(--gp-child-text-xl);
+    font-weight: 700;
+    margin-bottom: var(--gp-child-space-3);
+}
+
+.gp-child-card-text {
+    color: var(--gp-child-gray-600);
+    margin-bottom: var(--gp-child-space-4);
+}
+
+/* Forms */
+.gp-child-form-group {
+    margin-bottom: var(--gp-child-space-4);
+}
+
+.gp-child-form-label {
+    display: block;
+    font-size: var(--gp-child-text-sm);
+    font-weight: 600;
+    color: var(--gp-child-gray-700);
+    margin-bottom: var(--gp-child-space-2);
+}
+
+.gp-child-form-input,
+.gp-child-form-textarea,
+.gp-child-form-select {
+    width: 100%;
+    padding: var(--gp-child-space-3) var(--gp-child-space-4);
+    font-family: inherit;
+    font-size: var(--gp-child-text-base);
+    color: var(--gp-child-gray-800);
+    background-color: var(--gp-child-white);
+    border: 1px solid var(--gp-child-gray-300);
+    border-radius: var(--gp-child-radius-md);
+    transition: border-color var(--gp-child-transition-fast), box-shadow var(--gp-child-transition-fast);
+}
+
+.gp-child-form-input:focus,
+.gp-child-form-textarea:focus,
+.gp-child-form-select:focus {
+    border-color: var(--gp-child-primary);
+    box-shadow: 0 0 0 3px var(--gp-child-primary-light);
+    outline: none;
+}
+
+.gp-child-form-input::placeholder,
+.gp-child-form-textarea::placeholder {
+    color: var(--gp-child-gray-400);
+}
+
+/* ==========================================================================
+   6. Utility Classes
+   ========================================================================== */
+
+/* Text Alignment */
+.gp-child-text-left {
+    text-align: left;
+}
+
+.gp-child-text-center {
+    text-align: center;
+}
+
+.gp-child-text-right {
+    text-align: right;
+}
+
+/* Display */
+.gp-child-hidden {
+    display: none;
+}
+
+.gp-child-block {
+    display: block;
+}
+
+.gp-child-inline-block {
+    display: inline-block;
+}
+
+/* Spacing */
+.gp-child-mt-0 {
+    margin-top: 0;
+}
+
+.gp-child-mt-4 {
+    margin-top: var(--gp-child-space-4);
+}
+
+.gp-child-mt-8 {
+    margin-top: var(--gp-child-space-8);
+}
+
+.gp-child-mb-0 {
+    margin-bottom: 0;
+}
+
+.gp-child-mb-4 {
+    margin-bottom: var(--gp-child-space-4);
+}
+
+.gp-child-mb-8 {
+    margin-bottom: var(--gp-child-space-8);
+}
+
+.gp-child-pt-0 {
+    padding-top: 0;
+}
+
+.gp-child-pt-4 {
+    padding-top: var(--gp-child-space-4);
+}
+
+.gp-child-pt-8 {
+    padding-top: var(--gp-child-space-8);
+}
+
+.gp-child-pb-0 {
+    padding-bottom: 0;
+}
+
+.gp-child-pb-4 {
+    padding-bottom: var(--gp-child-space-4);
+}
+
+.gp-child-pb-8 {
+    padding-bottom: var(--gp-child-space-8);
+}
+
+/* Screen Reader Only */
+.gp-child-sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+/* ==========================================================================
+   7. Animations
+   ========================================================================== */
+
+@keyframes gp-child-fade-in {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes gp-child-slide-up {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes gp-child-slide-down {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.gp-child-animate-fade-in {
+    animation: gp-child-fade-in var(--gp-child-transition-slow) ease forwards;
+}
+
+.gp-child-animate-slide-up {
+    animation: gp-child-slide-up var(--gp-child-transition-slow) ease forwards;
+}
+
+.gp-child-animate-slide-down {
+    animation: gp-child-slide-down var(--gp-child-transition-slow) ease forwards;
+}
+
+/* ==========================================================================
+   8. Media Queries
+   ========================================================================== */
+
+/* Small devices (landscape phones, 576px and up) */
+@media (min-width: 576px) {
+    /* Add responsive styles here */
+}
+
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) {
+    /* Add responsive styles here */
+}
+
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) {
+    /* Add responsive styles here */
+}
+
+/* Extra large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {
+    /* Add responsive styles here */
+}
+
+/* Print Styles */
+@media print {
+    .gp-child-theme {
+        background: none !important;
+        color: #000 !important;
+    }
+
+    .gp-child-theme a {
+        text-decoration: underline;
+    }
+
+    .gp-child-no-print {
+        display: none !important;
+    }
+}

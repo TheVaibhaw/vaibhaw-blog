@@ -1,0 +1,92 @@
+/**
+ * GeneratePress Child Theme - Admin Styles
+ *
+ * @package    GeneratePress_Child
+ * @author     Your Name
+ * @copyright  2026 Your Name
+ * @license    GPL-2.0-or-later
+ * @version    1.0.0
+ */
+
+/* ==========================================================================
+   Admin Panel Customizations
+   ========================================================================== */
+
+/* Theme branding in admin */
+.gp-child-admin-notice {
+    border-left-color: #2563eb;
+}
+
+/* Custom meta box styling */
+.gp-child-meta-box {
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 4px;
+    padding: 15px;
+}
+
+.gp-child-meta-box .inside {
+    margin: 0;
+    padding: 0;
+}
+
+/* Admin form elements */
+.gp-child-admin-field {
+    margin-bottom: 15px;
+}
+
+.gp-child-admin-field label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 5px;
+}
+
+.gp-child-admin-field input[type="text"],
+.gp-child-admin-field input[type="url"],
+.gp-child-admin-field input[type="email"],
+.gp-child-admin-field textarea,
+.gp-child-admin-field select {
+    width: 100%;
+    max-width: 400px;
+}
+
+.gp-child-admin-field .description {
+    color: #666;
+    font-size: 12px;
+    font-style: italic;
+    margin-top: 5px;
+}
+
+/* Widget area styling */
+.gp-child-widget .widget-title {
+    background: #2563eb;
+    color: #fff;
+    padding: 10px;
+    margin: -10px -10px 10px;
+}
+
+/* Dashboard widget */
+.gp-child-dashboard-widget {
+    padding: 10px;
+}
+
+.gp-child-dashboard-widget h3 {
+    color: #1e293b;
+    border-bottom: 1px solid #e2e8f0;
+    padding-bottom: 10px;
+}
+
+.gp-child-dashboard-widget ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.gp-child-dashboard-widget ul li {
+    padding: 8px 0;
+    border-bottom: 1px solid #f1f5f9;
+}
+
+.gp-child-dashboard-widget ul li:last-child {
+    border-bottom: none;
+}
