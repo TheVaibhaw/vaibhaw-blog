@@ -1,146 +1,174 @@
-<?php
-if (!defined('ABSPATH')) {
-    exit;
-}
-
-get_header();
-?>
+<?php get_header(); ?>
 
 <section class="hero-banner" id="hero">
-    <div class="hero-bg-animation">
-        <div class="floating-shapes">
-            <div class="shape shape-1"></div>
-            <div class="shape shape-2"></div>
-            <div class="shape shape-3"></div>
-            <div class="shape shape-4"></div>
-            <div class="shape shape-5"></div>
-        </div>
-        <div class="grid-overlay"></div>
-    </div>
+	<div class="hero-bg-particles" aria-hidden="true">
+		<span class="particle"></span>
+		<span class="particle"></span>
+		<span class="particle"></span>
+		<span class="particle"></span>
+		<span class="particle"></span>
+		<span class="particle"></span>
+		<span class="particle"></span>
+		<span class="particle"></span>
+	</div>
+	<div class="hero-grid-overlay" aria-hidden="true"></div>
+	<div class="hero-glow hero-glow--left" aria-hidden="true"></div>
+	<div class="hero-glow hero-glow--right" aria-hidden="true"></div>
 
-    <div class="hero-content">
-        <div class="hero-badge">
-            <span class="badge-icon">🚀</span>
-            <span class="badge-text">Tech • Code • AI</span>
-        </div>
+	<div class="hero-container">
+		<div class="hero-content">
+			<div class="hero-badge" data-animate="fade-down">
+				<span class="hero-badge__dot"></span>
+				<span class="hero-badge__text">Tech &bull; Code &bull; Insights</span>
+			</div>
 
-        <h1 class="hero-title">
-            <span class="title-line">Exploring the Future of</span>
-            <span class="title-highlight">
-                <span class="typing-text"></span>
-                <span class="cursor">|</span>
-            </span>
-        </h1>
+			<h1 class="hero-title" data-animate="fade-up">
+				<span class="hero-title__line">Exploring the World of</span>
+				<span class="hero-title__highlight">
+					<span class="hero-title__typed" id="heroTyped"></span>
+					<span class="hero-title__cursor" aria-hidden="true">|</span>
+				</span>
+			</h1>
 
-        <p class="hero-description">
-            Dive into the world of cutting-edge technology, programming tutorials,
-            and AI innovations. Your journey to becoming a tech expert starts here.
-        </p>
+			<p class="hero-description" data-animate="fade-up" data-delay="200">
+				High-performance web development insights on React, Next.js, WordPress, and more. Written by
+				<a href="https://vaibhawkumar.in" target="_blank" rel="noopener">Vaibhaw Kumar Parashar</a>, a website developer at <strong class="text-white">Tech Prastish Mohali</strong> with roots in <strong class="text-white">Saran, Bihar</strong>. Professional software engineering solutions from Chapra to Mohali.
+			</p>
 
-        <div class="hero-stats">
-            <div class="stat-item">
-                <span class="stat-icon">📚</span>
-                <span class="stat-number" data-count="100">0</span>
-                <span class="stat-label">Articles</span>
-            </div>
-            <div class="stat-item">
-                <span class="stat-icon">💻</span>
-                <span class="stat-number" data-count="50">0</span>
-                <span class="stat-label">Tutorials</span>
-            </div>
-            <div class="stat-item">
-                <span class="stat-icon">🤖</span>
-                <span class="stat-number" data-count="25">0</span>
-                <span class="stat-label">AI Projects</span>
-            </div>
-        </div>
+			<div class="hero-actions" data-animate="fade-up" data-delay="400">
+				<a href="<?php echo esc_url( home_url( '/blog/' ) ); ?>" class="hero-btn hero-btn--primary">
+					<span>Browse Blog</span>
+					<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+				</a>
+				<a href="https://vaibhawkumar.in#contact" class="hero-btn hero-btn--outline" target="_blank" rel="noopener">
+					<span>Hire Vaibhaw Kumar</span>
+				</a>
+			</div>
 
-        <div class="hero-cta">
-            <a href="#main-content" class="btn-primary">
-                <span>Explore Articles</span>
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <path d="M5 12h14M12 5l7 7-7 7" />
-                </svg>
-            </a>
-            <a href="#categories" class="btn-secondary">
-                <span>Browse Topics</span>
-            </a>
-        </div>
 
-        <div class="hero-tags">
-            <span class="tag">Python</span>
-            <span class="tag">JavaScript</span>
-            <span class="tag">Machine Learning</span>
-            <span class="tag">Web Dev</span>
-            <span class="tag">AI/ML</span>
-            <span class="tag">DevOps</span>
-        </div>
-    </div>
+		</div>
 
-    <div class="hero-visual">
-        <div class="code-window">
-            <div class="window-header">
-                <div class="window-dots">
-                    <span class="dot red"></span>
-                    <span class="dot yellow"></span>
-                    <span class="dot green"></span>
-                </div>
-                <span class="window-title">main.py</span>
-            </div>
-            <div class="window-content">
-                <pre><code><span class="code-keyword">def</span> <span class="code-function">learn_tech</span>():
-    <span class="code-variable">skills</span> = [<span class="code-string">"AI"</span>, <span class="code-string">"Web"</span>, <span class="code-string">"Cloud"</span>]
-    <span class="code-keyword">for</span> skill <span class="code-keyword">in</span> skills:
-        <span class="code-function">master</span>(skill)
-    <span class="code-keyword">return</span> <span class="code-string">"Success! 🎉"</span></code></pre>
-            </div>
-        </div>
+		<div class="hero-visual" data-animate="fade-left">
+			<div class="hero-image-wrapper">
+				<div class="hero-image-glow" aria-hidden="true"></div>
+				<img src="<?php echo esc_url( get_stylesheet_directory_uri() . '/assets/images/hero-visual.png' ); ?>" alt="Technology and programming illustration" class="hero-image" width="540" height="540" loading="eager" />
+			</div>
+		</div>
+	</div>
 
-        <div class="floating-icons">
-            <div class="icon-float icon-1">⚛️</div>
-            <div class="icon-float icon-2">🐍</div>
-            <div class="icon-float icon-3">🤖</div>
-            <div class="icon-float icon-4">☁️</div>
-            <div class="icon-float icon-5">🔧</div>
-        </div>
-    </div>
-
-    <div class="scroll-indicator">
-        <span>Scroll to explore</span>
-        <div class="scroll-arrow">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M12 5v14M5 12l7 7 7-7" />
-            </svg>
-        </div>
-    </div>
+	<div class="hero-scroll-indicator" aria-hidden="true">
+		<span class="hero-scroll-indicator__line"></span>
+	</div>
 </section>
 
-<div id="main-content" class="site-main-content">
-    <div <?php generate_do_attr('content'); ?>>
-        <main <?php generate_do_attr('main'); ?>>
-            <?php
-            do_action('generate_before_main_content');
-
-            if (generate_has_default_loop()) {
-                if (have_posts()) :
-                    do_action('generate_before_loop', 'index');
-
-                    while (have_posts()) :
-                        the_post();
-                        generate_do_template_part('index');
-                    endwhile;
-
-                    do_action('generate_after_loop', 'index');
-                else :
-                    generate_do_template_part('none');
-                endif;
-            }
-
-            do_action('generate_after_main_content');
-            ?>
-        </main>
-    </div>
-</div>
+<?php
+$categories = get_categories( array(
+	'orderby'    => 'count',
+	'order'      => 'DESC',
+	'hide_empty' => true,
+) );
+if ( ! empty( $categories ) ) : ?>
+<section class="categories-section" id="categories">
+	<div class="categories-container">
+		<div class="categories-header" data-animate="fade-up">
+			<span class="categories-label">Browse Topics</span>
+			<h2 class="categories-title">Explore Categories</h2>
+			<p class="categories-subtitle">Find articles on the topics that interest you most</p>
+		</div>
+		<div class="categories-slider-wrapper" data-animate="fade-up" data-delay="200">
+			<button class="categories-nav categories-nav--prev" aria-label="Previous categories" type="button">
+				<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg>
+			</button>
+			<div class="categories-slider" id="categoriesSlider">
+				<div class="categories-track">
+					<?php foreach ( $categories as $index => $category ) :
+						$cat_link  = esc_url( get_category_link( $category->term_id ) );
+						$cat_name  = esc_html( $category->name );
+						$cat_count = $category->count;
+						$cat_desc  = esc_html( $category->description );
+						$icons = array(
+							'<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>',
+							'<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>',
+							'<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>',
+							'<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>',
+							'<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>',
+							'<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>',
+						);
+						$icon = $icons[ $index % count( $icons ) ];
+					?>
+					<a href="<?php echo $cat_link; ?>" class="category-card">
+						<div class="category-card__icon"><?php echo $icon; ?></div>
+						<h3 class="category-card__name"><?php echo $cat_name; ?></h3>
+						<?php if ( $cat_desc ) : ?>
+							<p class="category-card__desc"><?php echo $cat_desc; ?></p>
+						<?php endif; ?>
+						<span class="category-card__count"><?php echo $cat_count; ?> <?php echo $cat_count === 1 ? 'Article' : 'Articles'; ?></span>
+						<span class="category-card__arrow">
+							<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+						</span>
+					</a>
+					<?php endforeach; ?>
+				</div>
+			</div>
+			<button class="categories-nav categories-nav--next" aria-label="Next categories" type="button">
+				<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
+			</button>
+		</div>
+	</div>
+</section>
+<?php endif; ?>
 
 <?php
-get_footer();
+$latest_posts = new WP_Query( array(
+	'posts_per_page' => 5,
+	'post_status'    => 'publish',
+	'orderby'        => 'date',
+	'order'          => 'DESC',
+) );
+if ( $latest_posts->have_posts() ) : ?>
+<section class="latest-posts-section" id="latest-posts">
+	<div class="latest-posts-container">
+		<div class="latest-posts-header" data-animate="fade-up">
+			<span class="latest-posts-label">Recently Published</span>
+			<h2 class="latest-posts-title">Latest Articles</h2>
+			<p class="latest-posts-subtitle">Stay updated with the newest content from the blog</p>
+		</div>
+		<div class="latest-posts-grid" data-animate="fade-up" data-delay="200">
+			<?php while ( $latest_posts->have_posts() ) : $latest_posts->the_post(); ?>
+			<a href="<?php echo esc_url( get_permalink() ); ?>" class="post-card">
+				<div class="post-card__thumbnail">
+					<?php if ( has_post_thumbnail() ) : ?>
+						<?php the_post_thumbnail( 'medium_large', array( 'class' => 'post-card__image', 'loading' => 'lazy' ) ); ?>
+					<?php else : ?>
+						<div class="post-card__placeholder">
+							<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><path d="M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3l-2.5-3z"/><circle cx="12" cy="13" r="3"/></svg>
+						</div>
+					<?php endif; ?>
+					<?php
+					$post_categories = get_the_category();
+					if ( ! empty( $post_categories ) ) : ?>
+						<span class="post-card__category"><?php echo esc_html( $post_categories[0]->name ); ?></span>
+					<?php endif; ?>
+				</div>
+				<div class="post-card__body">
+					<h3 class="post-card__title"><?php the_title(); ?></h3>
+					<p class="post-card__excerpt"><?php echo esc_html( wp_trim_words( get_the_excerpt(), 16, '...' ) ); ?></p>
+					<div class="post-card__meta">
+						<time class="post-card__date" datetime="<?php echo esc_attr( get_the_date( 'Y-m-d' ) ); ?>"><?php echo esc_html( get_the_date( 'M j, Y' ) ); ?></time>
+						<span class="post-card__readtime"><?php echo max( 1, ceil( str_word_count( get_the_content() ) / 200 ) ); ?> min read</span>
+					</div>
+				</div>
+			</a>
+			<?php endwhile; ?>
+		</div>
+		<div class="latest-posts-cta" data-animate="fade-up" data-delay="400">
+			<a href="<?php echo esc_url( home_url( '/blog/' ) ); ?>" class="latest-posts-btn">
+				<span>View All Articles</span>
+				<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+			</a>
+		</div>
+	</div>
+</section>
+<?php endif; wp_reset_postdata(); ?>
+
+<?php get_footer(); ?>
