@@ -6,12 +6,7 @@
 (function ($) {
     'use strict';
 
-    // Wait for DOM to be ready
     $(document).ready(function () {
-
-        // ============================================
-        // TYPING ANIMATION
-        // ============================================
         const typingElement = document.querySelector('.typing-text');
         if (typingElement) {
             const words = [
@@ -44,23 +39,17 @@
 
                 if (!isDeleting && charIndex === currentWord.length) {
                     isDeleting = true;
-                    typingSpeed = 2000; // Pause at end
+                    typingSpeed = 2000;
                 } else if (isDeleting && charIndex === 0) {
                     isDeleting = false;
                     wordIndex = (wordIndex + 1) % words.length;
-                    typingSpeed = 500; // Pause before new word
+                    typingSpeed = 500;
                 }
-
                 setTimeout(typeEffect, typingSpeed);
             }
-
-            // Start typing animation
             setTimeout(typeEffect, 1000);
         }
 
-        // ============================================
-        // COUNTER ANIMATION
-        // ============================================
         function animateCounters() {
             const counters = document.querySelectorAll('.stat-number[data-count]');
 
@@ -80,7 +69,6 @@
                     }
                 };
 
-                // Use Intersection Observer to trigger when visible
                 const observer = new IntersectionObserver((entries) => {
                     entries.forEach(entry => {
                         if (entry.isIntersecting) {
@@ -96,9 +84,6 @@
 
         animateCounters();
 
-        // ============================================
-        // PARALLAX EFFECT ON SHAPES
-        // ============================================
         const shapes = document.querySelectorAll('.shape');
 
         if (shapes.length > 0) {
@@ -125,9 +110,6 @@
             });
         }
 
-        // ============================================
-        // SMOOTH SCROLL FOR ANCHOR LINKS
-        // ============================================
         $('a[href^="#"]').on('click', function (e) {
             const target = $(this.getAttribute('href'));
             if (target.length) {
@@ -138,9 +120,6 @@
             }
         });
 
-        // ============================================
-        // SCROLL ANIMATIONS
-        // ============================================
         function revealOnScroll() {
             const reveals = document.querySelectorAll('.hero-stats .stat-item, .hero-tags .tag');
 
@@ -164,20 +143,13 @@
 
         revealOnScroll();
 
-        // ============================================
-        // FLOATING ICONS RANDOM MOVEMENT
-        // ============================================
         const floatingIcons = document.querySelectorAll('.icon-float');
 
         floatingIcons.forEach(icon => {
-            // Add random delay to make movement more organic
             const randomDelay = Math.random() * 5;
             icon.style.animationDelay = `-${randomDelay}s`;
         });
 
-        // ============================================
-        // CODE WINDOW SYNTAX HIGHLIGHTING ANIMATION
-        // ============================================
         const codeLines = document.querySelectorAll('.window-content pre code > *');
 
         if (codeLines.length > 0) {
@@ -187,7 +159,6 @@
             });
         }
 
-        // Add fadeIn keyframe dynamically
         const style = document.createElement('style');
         style.textContent = `
             @keyframes fadeIn {
@@ -197,9 +168,6 @@
         `;
         document.head.appendChild(style);
 
-        // ============================================
-        // NAVBAR SCROLL EFFECT
-        // ============================================
         let lastScroll = 0;
         const header = document.querySelector('.site-header');
 
@@ -221,9 +189,6 @@
             });
         }
 
-        // ============================================
-        // BUTTON RIPPLE EFFECT
-        // ============================================
         document.querySelectorAll('.btn-primary, .btn-secondary').forEach(button => {
             button.addEventListener('click', function (e) {
                 const ripple = document.createElement('span');
@@ -253,7 +218,6 @@
             });
         });
 
-        // Add ripple animation
         const rippleStyle = document.createElement('style');
         rippleStyle.textContent = `
             @keyframes ripple {
