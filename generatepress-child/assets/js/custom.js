@@ -1,8 +1,3 @@
-/**
- * Custom JavaScript for Tech Blog
- * Hero Banner Animations & Interactions
- */
-
 (function ($) {
     'use strict';
 
@@ -168,7 +163,6 @@
         `;
         document.head.appendChild(style);
 
-        let lastScroll = 0;
         const header = document.querySelector('.site-header');
 
         if (header) {
@@ -184,8 +178,6 @@
                     header.style.backdropFilter = '';
                     header.style.boxShadow = '';
                 }
-
-                lastScroll = currentScroll;
             });
         }
 
@@ -225,7 +217,5 @@
             }
         `;
         document.head.appendChild(rippleStyle);
-
     });
-
 })(jQuery);
