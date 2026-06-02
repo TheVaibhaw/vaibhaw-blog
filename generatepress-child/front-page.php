@@ -80,7 +80,7 @@ if (! empty($categories)) : ?>
 			</div>
 			<div class="categories-slider-wrapper" data-animate="fade-up" data-delay="200">
 				<button class="categories-nav categories-nav--prev" aria-label="Previous categories" type="button">
-					<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+					<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round">
 						<path d="m15 18-6-6 6-6" />
 					</svg>
 				</button>
@@ -119,7 +119,7 @@ if (! empty($categories)) : ?>
 					</div>
 				</div>
 				<button class="categories-nav categories-nav--next" aria-label="Next categories" type="button">
-					<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+					<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round">
 						<path d="m9 18 6-6-6-6" />
 					</svg>
 				</button>
