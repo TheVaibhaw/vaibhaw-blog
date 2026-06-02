@@ -184,7 +184,12 @@ img {
     background: transparent !important;
     border: 1px solid var(--gpc-border) !important;
     border-radius: var(--gpc-radius);
-    padding: 8px 12px;
+    padding: 10px !important;
+    width: 44px;
+    height: 44px;
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
     color: var(--gpc-text) !important;
 }
 
@@ -195,6 +200,9 @@ img {
 
 .menu-toggle .mobile-menu {
     color: var(--gpc-text) !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 @media (max-width: 768px) {
@@ -1435,6 +1443,16 @@ img {
     width: 100%;
     border-collapse: collapse;
     margin: 1.5em 0;
+    display: block;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+.entry-content table tbody,
+.entry-content table thead {
+    display: table;
+    width: 100%;
+    min-width: 600px;
 }
 
 .entry-content th,
@@ -4263,6 +4281,13 @@ button:active,
     .hero-visual {
         width: 100%;
         max-width: 400px;
+        margin: 0 auto;
+        display: flex;
+        justify-content: center;
+    }
+
+    .hero-image-wrapper {
+        margin: 0 auto;
     }
 
     .hero-title {
@@ -4317,6 +4342,9 @@ button:active,
 
     .hero-visual {
         max-width: 300px;
+        margin: 0 auto;
+        display: flex;
+        justify-content: center;
     }
 
     .categories-title {
@@ -4335,17 +4363,24 @@ button:active,
 
     .blog-search {
         flex-direction: column;
-        padding: 8px;
+        padding: 12px;
+        gap: 0;
+    }
+
+    .blog-search__icon {
+        display: none;
     }
 
     .blog-search__input {
-        padding: 14px !important;
+        padding: 14px 16px !important;
         text-align: center;
+        width: 100%;
     }
 
     .blog-search__btn {
         width: 100%;
-        margin: 8px 0 0 0;
+        margin: 10px 0 0 0;
+        padding: 14px 24px;
     }
 
     .blog-grid {
@@ -4408,6 +4443,9 @@ button:active,
 
     .hero-visual {
         max-width: 250px;
+        margin: 0 auto;
+        display: flex;
+        justify-content: center;
     }
 
     .hero-image {
