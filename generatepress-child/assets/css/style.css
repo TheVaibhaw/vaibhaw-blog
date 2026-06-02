@@ -1482,23 +1482,29 @@ footer.entry-meta .cat-links a:hover {
 }
 
 /* Post Navigation - Prev/Next Layout */
+.post-navigation {
+    display: flex !important;
+    flex-direction: row !important;
+    flex-wrap: nowrap !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    width: 100% !important;
+    padding: 24px 0;
+    margin-top: 32px;
+}
+
 footer.entry-meta .post-navigation,
 .single .post-navigation {
     margin-top: 0;
-    padding: 24px 0;
     border-top: 1px solid var(--gpc-border);
-    width: 100%;
 }
 
-.post-navigation,
 .posts-navigation,
 .paging-navigation {
     margin-top: 32px;
     width: 100%;
 }
 
-footer.entry-meta .nav-links,
-.single .post-navigation .nav-links,
 .post-navigation .nav-links,
 .paging-navigation .nav-links {
     display: flex !important;
@@ -1510,10 +1516,10 @@ footer.entry-meta .nav-links,
     gap: 16px;
 }
 
-.post-navigation .nav-previous,
-.post-navigation .nav-next,
-footer.entry-meta .nav-previous,
-footer.entry-meta .nav-next {
+.post-navigation>.nav-previous,
+.post-navigation>.nav-next,
+.post-navigation .nav-links>.nav-previous,
+.post-navigation .nav-links>.nav-next {
     display: inline-flex !important;
     align-items: center;
     gap: 8px;
@@ -1523,38 +1529,29 @@ footer.entry-meta .nav-next {
     border-radius: var(--gpc-radius);
     transition: all var(--gpc-transition);
     flex: 0 0 auto;
+    cursor: pointer;
 }
 
-footer.entry-meta .nav-previous:hover,
-footer.entry-meta .nav-next:hover,
-.post-navigation .nav-previous:hover,
-.post-navigation .nav-next:hover {
+.post-navigation>.nav-previous {
+    order: 1;
+}
+
+.post-navigation>.nav-next {
+    order: 2;
+    margin-left: auto !important;
+}
+
+.post-navigation>.nav-previous:hover,
+.post-navigation>.nav-next:hover,
+.post-navigation .nav-links>.nav-previous:hover,
+.post-navigation .nav-links>.nav-next:hover {
     background: var(--gpc-accent-glow);
     border-color: var(--gpc-accent);
     transform: translateY(-2px);
 }
 
-footer.entry-meta .nav-previous,
-.post-navigation .nav-previous {
-    justify-content: flex-start;
-}
-
-footer.entry-meta .nav-next,
-.post-navigation .nav-next {
-    justify-content: flex-end;
-    margin-left: auto;
-}
-
-footer.entry-meta .nav-previous+.nav-next {
-    border-left: none;
-}
-
-footer.entry-meta .nav-previous a,
-footer.entry-meta .nav-next a,
 .post-navigation .nav-previous a,
 .post-navigation .nav-next a,
-footer.entry-meta .nav-previous span.prev a,
-footer.entry-meta .nav-next span.next a,
 .post-navigation .nav-previous span.prev a,
 .post-navigation .nav-next span.next a {
     display: inline !important;
@@ -1568,14 +1565,11 @@ footer.entry-meta .nav-next span.next a,
     white-space: nowrap;
 }
 
-footer.entry-meta .nav-previous:hover a,
-footer.entry-meta .nav-next:hover a,
 .post-navigation .nav-previous:hover a,
 .post-navigation .nav-next:hover a {
     color: #fff !important;
 }
 
-footer.entry-meta .gp-icon,
 .post-navigation .gp-icon {
     display: inline-flex;
     color: var(--gpc-accent-light);
@@ -1607,51 +1601,33 @@ footer.entry-meta .gp-icon,
 
 /* Post Navigation Responsive */
 @media (max-width: 640px) {
-
-    footer.entry-meta .nav-links,
-    .single .post-navigation .nav-links,
-    .post-navigation .nav-links {
-        flex-wrap: nowrap !important;
-        gap: 12px;
+    .post-navigation {
+        padding: 16px 0;
     }
 
-    footer.entry-meta .nav-previous,
-    footer.entry-meta .nav-next,
-    .post-navigation .nav-previous,
-    .post-navigation .nav-next {
+    .post-navigation>.nav-previous,
+    .post-navigation>.nav-next {
         padding: 10px 16px;
     }
 
-    footer.entry-meta .nav-previous a,
-    footer.entry-meta .nav-next a,
     .post-navigation .nav-previous a,
     .post-navigation .nav-next a {
         font-size: 0.85rem;
-    }
-
-    footer.entry-meta .post-navigation,
-    .single .post-navigation {
-        padding: 16px 0;
     }
 }
 
 @media (max-width: 480px) {
 
-    footer.entry-meta .nav-previous,
-    footer.entry-meta .nav-next,
-    .post-navigation .nav-previous,
-    .post-navigation .nav-next {
+    .post-navigation>.nav-previous,
+    .post-navigation>.nav-next {
         padding: 8px 12px;
     }
 
-    footer.entry-meta .nav-previous a,
-    footer.entry-meta .nav-next a,
     .post-navigation .nav-previous a,
     .post-navigation .nav-next a {
         font-size: 0.8rem;
     }
 
-    footer.entry-meta .gp-icon svg,
     .post-navigation .gp-icon svg {
         width: 14px;
         height: 14px;
