@@ -4133,19 +4133,19 @@ button:active,
 /* Navigation link animations */
 .main-navigation .main-nav ul li a {
     position: relative;
-    transition: all var(--gpc-transition);
+    transition: color var(--gpc-transition);
 }
 
 .main-navigation .main-nav ul li a::after {
     content: '';
     position: absolute;
-    bottom: -2px;
-    left: 50%;
+    bottom: 0;
+    left: 0;
     width: 0;
     height: 2px;
-    background: var(--gpc-accent);
-    transition: all var(--gpc-transition);
-    transform: translateX(-50%);
+    background: linear-gradient(90deg, var(--gpc-accent), var(--gpc-accent-light));
+    transition: width var(--gpc-transition);
+    border-radius: 2px;
 }
 
 .main-navigation .main-nav ul li a:hover::after,
@@ -4155,7 +4155,6 @@ button:active,
 
 .main-navigation .main-nav ul li a:hover {
     color: var(--gpc-accent) !important;
-    transform: translateY(-1px);
 }
 
 /* Sidebar widget link animations */
