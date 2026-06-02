@@ -494,7 +494,7 @@ img {
 
 .hero-btn--primary {
     background: linear-gradient(135deg, var(--gpc-gradient-start), var(--gpc-gradient-end));
-    color: #fff;
+    color: #fff !important;
     border: none;
     box-shadow: 0 4px 20px rgba(100, 255, 218, 0.3);
 }
@@ -502,6 +502,7 @@ img {
 .hero-btn--primary:hover {
     transform: translateY(-2px);
     box-shadow: 0 8px 30px rgba(100, 255, 218, 0.45);
+    color: #fff !important;
 }
 
 .hero-btn--primary svg {
@@ -520,7 +521,7 @@ img {
 
 .hero-btn--outline:hover {
     border-color: var(--gpc-accent);
-    color: #fff;
+    color: #fff !important;
     background: var(--gpc-accent-glow);
     transform: translateY(-2px);
 }
@@ -1187,7 +1188,7 @@ img {
     border-radius: var(--gpc-radius);
     text-decoration: none;
     background: linear-gradient(135deg, var(--gpc-gradient-start), var(--gpc-gradient-end));
-    color: #fff;
+    color: #fff !important;
     border: none;
     box-shadow: 0 4px 20px rgba(100, 255, 218, 0.3);
     transition: all var(--gpc-transition);
@@ -1196,6 +1197,7 @@ img {
 .latest-posts-btn:hover {
     transform: translateY(-2px);
     box-shadow: 0 8px 30px rgba(100, 255, 218, 0.45);
+    color: #fff !important;
 }
 
 .latest-posts-btn svg {
@@ -2211,7 +2213,7 @@ footer.entry-meta .post-navigation,
     gap: 8px;
     padding: 12px 24px;
     background: linear-gradient(135deg, var(--gpc-gradient-start), var(--gpc-gradient-end));
-    color: #fff;
+    color: #fff !important;
     text-decoration: none;
     border-radius: var(--gpc-radius);
     font-weight: 600;
@@ -2222,6 +2224,7 @@ footer.entry-meta .post-navigation,
 .archive-empty__btn:hover {
     transform: translateY(-2px);
     box-shadow: 0 8px 24px rgba(100, 255, 218, 0.35);
+    color: #fff !important;
 }
 
 @media (max-width: 768px) {
@@ -2667,7 +2670,7 @@ footer.entry-meta .post-navigation,
     gap: 8px;
     padding: 12px 24px;
     background: linear-gradient(135deg, var(--gpc-gradient-start), var(--gpc-gradient-end));
-    color: #fff;
+    color: #fff !important;
     text-decoration: none;
     border-radius: var(--gpc-radius);
     font-weight: 600;
@@ -2678,6 +2681,7 @@ footer.entry-meta .post-navigation,
 .blog-empty__btn:hover {
     transform: translateY(-2px);
     box-shadow: 0 8px 24px rgba(100, 255, 218, 0.35);
+    color: #fff !important;
 }
 
 @media (max-width: 1024px) {
@@ -2755,7 +2759,7 @@ footer.entry-meta .post-navigation,
 
 .blog-search__btn {
     background: linear-gradient(135deg, var(--gpc-gradient-start), var(--gpc-gradient-end));
-    color: #fff;
+    color: #fff !important;
     border: none;
     padding: 12px 24px;
     margin: 4px;
@@ -2769,6 +2773,7 @@ footer.entry-meta .post-navigation,
 
 .blog-search__btn:hover {
     box-shadow: 0 4px 16px rgba(100, 255, 218, 0.4);
+    color: #fff !important;
 }
 
 .single #right-sidebar,
@@ -4057,6 +4062,18 @@ a {
 
 a:hover {
     color: var(--gpc-accent);
+}
+
+a.hero-btn:hover,
+a.hero-btn--primary:hover,
+a.hero-btn--outline:hover,
+a.blog-search__btn:hover,
+a.blog-empty__btn:hover,
+a.archive-empty__btn:hover,
+a.latest-posts-btn:hover,
+.nav-previous a:hover,
+.nav-next a:hover {
+    color: #fff !important;
 }
 
 button,
