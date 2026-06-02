@@ -1495,7 +1495,7 @@ footer.entry-meta .cat-links a:hover {
 footer.entry-meta .post-navigation,
 .single .post-navigation {
     margin-top: 0;
-    padding: 10px 20px;
+    padding: 20px;
     border-top: 1px solid var(--gpc-border);
 }
 
