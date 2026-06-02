@@ -3326,6 +3326,35 @@ footer.entry-meta .post-navigation,
     margin-bottom: 0.5em;
 }
 
+.single-article__content table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1.5em 0;
+    display: block;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+.single-article__content table tbody,
+.single-article__content table thead {
+    display: table;
+    width: 100%;
+    min-width: 600px;
+}
+
+.single-article__content th,
+.single-article__content td {
+    padding: 12px 16px;
+    border: 1px solid var(--gpc-border);
+    text-align: left;
+}
+
+.single-article__content th {
+    background: var(--gpc-surface);
+    color: #fff;
+    font-weight: 600;
+}
+
 /* Article Footer - Tags */
 .single-article__footer {
     padding: 24px 40px;
