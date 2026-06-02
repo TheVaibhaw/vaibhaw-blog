@@ -1481,6 +1481,7 @@ footer.entry-meta .cat-links a:hover {
     transform: translateY(-1px);
 }
 
+/* Post Navigation - Prev/Next Layout */
 footer.entry-meta .post-navigation {
     margin-top: 0;
     padding: 0;
@@ -1495,54 +1496,66 @@ footer.entry-meta .post-navigation {
 
 footer.entry-meta .nav-links {
     display: flex !important;
+    justify-content: space-between;
     gap: 0;
 }
 
 .post-navigation .nav-links,
 .paging-navigation .nav-links {
     display: flex;
+    justify-content: space-between;
     gap: 0;
 }
 
 .post-navigation .nav-previous,
 .post-navigation .nav-next {
-    flex: 1;
+    flex: 0 0 auto;
 }
 
 footer.entry-meta .nav-previous,
 footer.entry-meta .nav-next {
     display: flex;
-    flex: 1;
+    flex: 0 0 auto;
+}
+
+footer.entry-meta .nav-previous {
+    margin-right: auto;
+}
+
+footer.entry-meta .nav-next {
+    margin-left: auto;
 }
 
 footer.entry-meta .nav-previous+.nav-next {
-    border-left: 1px solid var(--gpc-border);
+    border-left: none;
 }
 
 footer.entry-meta .nav-previous a,
 footer.entry-meta .nav-next a {
     display: flex !important;
     align-items: center;
-    gap: 12px;
-    padding: 20px 40px !important;
-    width: 100%;
+    gap: 8px;
+    padding: 12px 20px !important;
     text-decoration: none;
-    background: transparent !important;
-    border: none !important;
-    border-radius: 0 !important;
+    background: var(--gpc-surface) !important;
+    border: 1px solid var(--gpc-border) !important;
+    border-radius: var(--gpc-radius) !important;
     color: var(--gpc-text) !important;
-    transition: background var(--gpc-transition);
+    transition: all var(--gpc-transition);
+    font-weight: 500;
+    font-size: 0.9rem;
 }
 
 footer.entry-meta .nav-previous a:hover,
 footer.entry-meta .nav-next a:hover {
-    background: rgba(99, 102, 241, 0.06) !important;
-    transform: none;
+    background: var(--gpc-accent-glow) !important;
+    border-color: var(--gpc-accent) !important;
+    color: #fff !important;
+    transform: translateY(-2px);
 }
 
 footer.entry-meta .nav-next a {
-    justify-content: flex-end;
-    text-align: right;
+    flex-direction: row;
 }
 
 footer.entry-meta .gp-icon {
@@ -1555,9 +1568,9 @@ footer.entry-meta .prev a,
 footer.entry-meta .next a,
 footer.entry-meta .nav-previous span.prev a,
 footer.entry-meta .nav-next span.next a {
-    color: #fff !important;
-    font-weight: 600;
-    font-size: 0.92rem;
+    color: inherit !important;
+    font-weight: 500;
+    font-size: 0.9rem;
 }
 
 .post-navigation .nav-previous a,

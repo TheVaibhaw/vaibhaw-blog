@@ -124,3 +124,18 @@ function generatepress_child_seo_metadata()
 <?php
 }
 add_action('wp_head', 'generatepress_child_seo_metadata', 1);
+
+function generatepress_child_post_navigation_args($args)
+{
+  $args['previous_format'] = '<div class="nav-previous">' . generate_get_svg_icon('arrow-left') . '<span class="prev">%link</span></div>';
+  $args['next_format'] = '<div class="nav-next"><span class="next">%link</span>' . generate_get_svg_icon('arrow-right') . '</div>';
+  $args['link'] = 'Prev';
+  return $args;
+}
+add_filter('generate_post_navigation_args', 'generatepress_child_post_navigation_args');
+
+function generatepress_child_next_post_link_text($link)
+{
+  return str_replace('Prev', 'Next', $link);
+}
+add_filter('next_post_link', 'generatepress_child_next_post_link_text');
