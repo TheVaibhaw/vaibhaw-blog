@@ -1482,47 +1482,54 @@ footer.entry-meta .cat-links a:hover {
 }
 
 /* Post Navigation - Prev/Next Layout */
-footer.entry-meta .post-navigation {
+footer.entry-meta .post-navigation,
+.single .post-navigation {
     margin-top: 0;
-    padding: 0;
+    padding: 24px 0;
     border-top: 1px solid var(--gpc-border);
+    width: 100%;
 }
 
 .post-navigation,
 .posts-navigation,
 .paging-navigation {
     margin-top: 32px;
+    width: 100%;
 }
 
-footer.entry-meta .nav-links {
+footer.entry-meta .nav-links,
+.single .post-navigation .nav-links {
     display: flex !important;
-    justify-content: space-between;
-    gap: 0;
+    justify-content: space-between !important;
+    align-items: center;
+    width: 100%;
+    gap: 16px;
 }
 
 .post-navigation .nav-links,
 .paging-navigation .nav-links {
     display: flex;
     justify-content: space-between;
-    gap: 0;
+    width: 100%;
+    gap: 16px;
 }
 
 .post-navigation .nav-previous,
-.post-navigation .nav-next {
-    flex: 0 0 auto;
-}
-
+.post-navigation .nav-next,
 footer.entry-meta .nav-previous,
 footer.entry-meta .nav-next {
     display: flex;
     flex: 0 0 auto;
 }
 
-footer.entry-meta .nav-previous {
-    margin-right: auto;
+footer.entry-meta .nav-previous,
+.post-navigation .nav-previous {
+    justify-content: flex-start;
 }
 
-footer.entry-meta .nav-next {
+footer.entry-meta .nav-next,
+.post-navigation .nav-next {
+    justify-content: flex-end;
     margin-left: auto;
 }
 
@@ -1531,11 +1538,13 @@ footer.entry-meta .nav-previous+.nav-next {
 }
 
 footer.entry-meta .nav-previous a,
-footer.entry-meta .nav-next a {
-    display: flex !important;
+footer.entry-meta .nav-next a,
+.post-navigation .nav-previous a,
+.post-navigation .nav-next a {
+    display: inline-flex !important;
     align-items: center;
     gap: 8px;
-    padding: 12px 20px !important;
+    padding: 12px 24px !important;
     text-decoration: none;
     background: var(--gpc-surface) !important;
     border: 1px solid var(--gpc-border) !important;
@@ -1544,21 +1553,26 @@ footer.entry-meta .nav-next a {
     transition: all var(--gpc-transition);
     font-weight: 500;
     font-size: 0.9rem;
+    white-space: nowrap;
 }
 
 footer.entry-meta .nav-previous a:hover,
-footer.entry-meta .nav-next a:hover {
+footer.entry-meta .nav-next a:hover,
+.post-navigation .nav-previous a:hover,
+.post-navigation .nav-next a:hover {
     background: var(--gpc-accent-glow) !important;
     border-color: var(--gpc-accent) !important;
     color: #fff !important;
     transform: translateY(-2px);
 }
 
-footer.entry-meta .nav-next a {
+footer.entry-meta .nav-next a,
+.post-navigation .nav-next a {
     flex-direction: row;
 }
 
-footer.entry-meta .gp-icon {
+footer.entry-meta .gp-icon,
+.post-navigation .gp-icon {
     display: inline-flex;
     color: var(--gpc-accent-light);
     flex-shrink: 0;
@@ -1567,7 +1581,9 @@ footer.entry-meta .gp-icon {
 footer.entry-meta .prev a,
 footer.entry-meta .next a,
 footer.entry-meta .nav-previous span.prev a,
-footer.entry-meta .nav-next span.next a {
+footer.entry-meta .nav-next span.next a,
+.post-navigation .nav-previous span.prev a,
+.post-navigation .nav-next span.next a {
     color: inherit !important;
     font-weight: 500;
     font-size: 0.9rem;
@@ -1598,6 +1614,48 @@ footer.entry-meta .nav-next span.next a {
     color: #fff !important;
     background: var(--gpc-accent-glow);
     transform: translateY(-2px);
+}
+
+/* Post Navigation Responsive */
+@media (max-width: 640px) {
+
+    footer.entry-meta .nav-links,
+    .single .post-navigation .nav-links,
+    .post-navigation .nav-links {
+        flex-wrap: nowrap;
+        gap: 12px;
+    }
+
+    footer.entry-meta .nav-previous a,
+    footer.entry-meta .nav-next a,
+    .post-navigation .nav-previous a,
+    .post-navigation .nav-next a {
+        padding: 10px 16px !important;
+        font-size: 0.85rem;
+        gap: 6px;
+    }
+
+    footer.entry-meta .post-navigation,
+    .single .post-navigation {
+        padding: 16px 0;
+    }
+}
+
+@media (max-width: 480px) {
+
+    footer.entry-meta .nav-previous a,
+    footer.entry-meta .nav-next a,
+    .post-navigation .nav-previous a,
+    .post-navigation .nav-next a {
+        padding: 8px 12px !important;
+        font-size: 0.8rem;
+    }
+
+    footer.entry-meta .gp-icon svg,
+    .post-navigation .gp-icon svg {
+        width: 14px;
+        height: 14px;
+    }
 }
 
 .page-header {
