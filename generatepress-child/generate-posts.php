@@ -1,11 +1,36 @@
 <?php
-$wp_load = dirname(__FILE__, 4) . '/wp-load.php';
-if (!file_exists($wp_load)) {
-    $wp_load = dirname(__FILE__, 3) . '/wp-load.php';
+$wp_load = false;
+$dir = __DIR__;
+for ($i = 0; $i < 10; $i++) {
+    if (file_exists($dir . '/wp-load.php')) {
+        $wp_load = $dir . '/wp-load.php';
+        break;
+    }
+    $dir = dirname($dir);
 }
-if (!file_exists($wp_load)) {
-    die('wp-load.php not found. Check WordPress installation path.');
+
+if (!$wp_load) {
+    header('Content-Type: text/html; charset=utf-8');
+    echo '<!DOCTYPE html><html><head><title>Setup Required</title><style>
+    body{font-family:system-ui;background:#0f172a;color:#e2e8f0;padding:2rem;max-width:700px;margin:0 auto}
+    h1{color:#f87171}code{background:#1e293b;padding:2px 8px;border-radius:4px}
+    pre{background:#1e293b;padding:1rem;border-radius:8px;overflow-x:auto}
+    </style></head><body>
+    <h1>WordPress Not Found</h1>
+    <p>This script must be placed inside a WordPress theme folder.</p>
+    <h3>Setup Instructions:</h3>
+    <ol>
+    <li>Copy <code>generatepress-child</code> folder to your WordPress installation:<br>
+    <pre>/your-wordpress/wp-content/themes/generatepress-child/</pre></li>
+    <li>Access the script at:<br>
+    <pre>https://yourdomain.com/wp-content/themes/generatepress-child/generate-posts.php</pre></li>
+    <li>Make sure you are logged into WordPress as admin</li>
+    </ol>
+    <p>Current path: <code>' . __DIR__ . '</code></p>
+    </body></html>';
+    exit;
 }
+
 require_once $wp_load;
 
 if (!current_user_can('publish_posts')) {
