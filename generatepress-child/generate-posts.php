@@ -1,5 +1,12 @@
 <?php
-defined('ABSPATH') || require_once dirname(__FILE__, 5) . '/wp-load.php';
+$wp_load = dirname(__FILE__, 4) . '/wp-load.php';
+if (!file_exists($wp_load)) {
+    $wp_load = dirname(__FILE__, 3) . '/wp-load.php';
+}
+if (!file_exists($wp_load)) {
+    die('wp-load.php not found. Check WordPress installation path.');
+}
+require_once $wp_load;
 
 if (!current_user_can('publish_posts')) {
     wp_die('You need admin access to run this script.');
