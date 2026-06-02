@@ -116,6 +116,31 @@ foreach ($data['posts'] as $post_data) {
         update_post_meta($post_id, '_seo_focus_keyword', sanitize_text_field($post_data['focus_keyword']));
     }
 
+    if (!empty($post_data['featured_image'])) {
+        $image_url = $post_data['featured_image'];
+        $image_name = $post_data['slug'] . '-featured.jpg';
+
+        require_once(ABSPATH . 'wp-admin/includes/media.php');
+        require_once(ABSPATH . 'wp-admin/includes/file.php');
+        require_once(ABSPATH . 'wp-admin/includes/image.php');
+
+        $tmp = download_url($image_url);
+        if (!is_wp_error($tmp)) {
+            $file_array = [
+                'name' => $image_name,
+                'tmp_name' => $tmp
+            ];
+            $attach_id = media_handle_sideload($file_array, $post_id, $post_data['title']);
+            if (!is_wp_error($attach_id)) {
+                set_post_thumbnail($post_id, $attach_id);
+                if (!empty($post_data['image_alt'])) {
+                    update_post_meta($attach_id, '_wp_attachment_image_alt', sanitize_text_field($post_data['image_alt']));
+                }
+            }
+            @unlink($tmp);
+        }
+    }
+
     $results['success'][] = $post_data['title'] . ' (ID: ' . $post_id . ')';
 }
 ?>
