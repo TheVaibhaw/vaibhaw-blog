@@ -13,12 +13,10 @@ get_header();
 
 <div class="single-post-layout">
     <div class="single-post-container">
-        <!-- Main Content -->
         <main class="single-post-main">
             <?php while (have_posts()) : the_post(); ?>
                 <article id="post-<?php the_ID(); ?>" <?php post_class('single-article'); ?>>
                     <div class="single-article__inner">
-                        <!-- Article Header -->
                         <header class="single-article__header">
                             <?php $cats = get_the_category();
                             if (!empty($cats)) : ?>
@@ -45,19 +43,16 @@ get_header();
                             </div>
                         </header>
 
-                        <!-- Featured Image -->
                         <?php if (has_post_thumbnail()) : ?>
                             <figure class="single-article__featured">
                                 <?php the_post_thumbnail('large', ['class' => 'single-article__image']); ?>
                             </figure>
                         <?php endif; ?>
 
-                        <!-- Article Content -->
                         <div class="single-article__content entry-content">
                             <?php the_content(); ?>
                         </div>
 
-                        <!-- Tags -->
                         <?php $tags = get_the_tags();
                         if ($tags) : ?>
                             <footer class="single-article__footer">
@@ -72,7 +67,6 @@ get_header();
                             </footer>
                         <?php endif; ?>
 
-                        <!-- Post Navigation -->
                         <nav class="single-post-nav">
                             <?php
                             $prev_post = get_previous_post();
@@ -99,7 +93,6 @@ get_header();
                     </div>
                 </article>
 
-                <!-- Comments -->
                 <?php if (comments_open() || get_comments_number()) : ?>
                     <div class="single-comments">
                         <?php comments_template(); ?>
@@ -109,10 +102,8 @@ get_header();
             <?php endwhile; ?>
         </main>
 
-        <!-- Sidebar -->
         <aside class="single-sidebar">
             <div class="single-sidebar__inner">
-                <!-- Latest Posts Widget -->
                 <div class="sidebar-widget latest-posts-widget">
                     <h3 class="sidebar-widget__title">Latest Posts</h3>
                     <ul class="sidebar-latest-posts">
