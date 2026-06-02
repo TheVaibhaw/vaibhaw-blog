@@ -95,8 +95,71 @@ img {
     border-bottom: 1px solid var(--gpc-border);
 }
 
+/* Hide duplicate mobile menu wrapper */
 .mobile-menu-control-wrapper {
     display: none !important;
+}
+
+/* Mobile Navigation - Full Rework */
+@media (max-width: 768px) {
+
+    /* Make navigation wrapper invisible but keep toggle visible */
+    #site-navigation.main-navigation,
+    .main-navigation.has-menu,
+    .main-navigation,
+    nav.main-navigation {
+        background: transparent !important;
+        border: none !important;
+        box-shadow: none !important;
+        min-height: 0 !important;
+        height: auto !important;
+        padding: 0 !important;
+        margin: 0 !important;
+    }
+
+    .main-navigation .inside-navigation {
+        background: transparent !important;
+        padding: 8px 16px !important;
+        min-height: auto !important;
+        justify-content: flex-end !important;
+    }
+
+    /* Hide the main nav menu items */
+    .main-navigation .main-nav {
+        display: none !important;
+    }
+
+    /* Show nav when toggled as slide-out drawer */
+    .main-navigation.toggled .main-nav {
+        display: block !important;
+        position: fixed !important;
+        top: 0 !important;
+        right: 0 !important;
+        width: 280px !important;
+        height: 100vh !important;
+        background: var(--gpc-surface) !important;
+        z-index: 99998 !important;
+        padding-top: 70px !important;
+        border-left: 1px solid var(--gpc-border) !important;
+        box-shadow: -10px 0 30px rgba(0, 0, 0, 0.4) !important;
+        overflow-y: auto !important;
+    }
+
+    .main-navigation.toggled .main-nav>ul {
+        flex-direction: column !important;
+        background: transparent !important;
+    }
+
+    .main-navigation.toggled .main-nav ul li a {
+        padding: 16px 24px !important;
+        border-bottom: 1px solid var(--gpc-border) !important;
+        display: block !important;
+    }
+
+    /* Menu toggle - keep it visible with high z-index */
+    .menu-toggle {
+        z-index: 999999 !important;
+    }
 }
 
 .main-navigation,
@@ -185,43 +248,63 @@ img {
 }
 
 .menu-toggle {
-    background: transparent !important;
+    background: var(--gpc-surface) !important;
     border: 1px solid var(--gpc-border) !important;
-    border-radius: var(--gpc-radius);
+    border-radius: var(--gpc-radius) !important;
     padding: 10px !important;
-    width: 44px;
-    height: 44px;
+    width: 44px !important;
+    height: 44px !important;
+    min-width: 44px !important;
+    min-height: 44px !important;
     display: flex !important;
     align-items: center;
     justify-content: center;
     color: var(--gpc-text) !important;
+    flex-direction: column;
+    gap: 0;
+    overflow: hidden;
 }
 
-.menu-toggle .mobile-menu {
+/* Hide "Menu" text and close icon label */
+.menu-toggle .mobile-menu,
+.menu-toggle .gp-icon-text {
     display: none !important;
+}
+
+/* Show only one icon at a time */
+.menu-toggle .gp-icon {
+    width: 20px !important;
+    height: 20px !important;
+}
+
+.menu-toggle .gp-icon-menu-bars {
+    display: block !important;
+}
+
+.menu-toggle.toggled .gp-icon-menu-bars {
+    display: none !important;
+}
+
+.menu-toggle .gp-icon-close {
+    display: none !important;
+}
+
+.menu-toggle.toggled .gp-icon-close {
+    display: block !important;
 }
 
 .menu-toggle:hover {
     border-color: var(--gpc-accent) !important;
     color: #fff !important;
+    background: var(--gpc-surface-elevated) !important;
 }
 
 .menu-toggle svg,
-.menu-toggle .gp-icon {
+.menu-toggle .gp-icon svg {
     color: var(--gpc-text) !important;
-    display: block !important;
-}
-
-@media (max-width: 768px) {
-    .main-navigation .main-nav ul {
-        background: var(--gpc-surface) !important;
-        border-top: 1px solid var(--gpc-border);
-    }
-
-    .main-navigation .main-nav ul li a {
-        padding: 12px 20px !important;
-        border-bottom: 1px solid var(--gpc-border);
-    }
+    fill: currentColor !important;
+    width: 20px !important;
+    height: 20px !important;
 }
 
 .hero-banner {
