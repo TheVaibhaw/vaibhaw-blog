@@ -1,26 +1,16 @@
 <?php
 /* Template Name: Blog Page */
 defined('ABSPATH') || exit;
-
 get_header();
-
 $paged = get_query_var('paged') ?: 1;
-$blog_query = new WP_Query([
-	'post_type'      => 'post',
-	'post_status'    => 'publish',
-	'posts_per_page' => 10,
-	'paged'          => $paged,
-	'orderby'        => 'date',
-	'order'          => 'DESC',
-]);
+$blog_query = new WP_Query(['post_type' => 'post', 'post_status' => 'publish', 'posts_per_page' => 10, 'paged' => $paged, 'orderby' => 'date', 'order' => 'DESC']);
 ?>
-
-<div class="blog-page">
-	<div class="blog-container">
-		<header class="blog-hero" data-animate="fade-up">
-			<span class="blog-hero__label">Our Blog</span>
-			<h1 class="blog-hero__title">All Articles</h1>
-			<p class="blog-hero__desc">Explore in-depth articles on web technologies, programming, tools, and developer insights</p>
+<div class="search-page">
+	<div class="search-container">
+		<header class="search-hero">
+			<span class="search-hero__label">Our Blog</span>
+			<h1 class="search-hero__title">All Articles</h1>
+			<p class="search-hero__desc">Explore in-depth articles on web technologies, programming, tools, and developer insights</p>
 			<form class="blog-search" role="search" method="get" action="<?php echo esc_url(home_url('/')); ?>">
 				<svg class="blog-search__icon" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
 					<circle cx="11" cy="11" r="8" />
@@ -30,26 +20,20 @@ $blog_query = new WP_Query([
 				<button class="blog-search__btn" type="submit">Search</button>
 			</form>
 		</header>
-
 		<?php if ($blog_query->have_posts()) : ?>
-			<div class="blog-grid" data-animate="fade-up" data-delay="200">
+			<div class="blog-grid">
 				<?php while ($blog_query->have_posts()) : $blog_query->the_post(); ?>
 					<a href="<?php echo esc_url(get_permalink()); ?>" class="blog-card">
 						<div class="blog-card__thumb">
-							<?php if (has_post_thumbnail()) : ?>
-								<?php the_post_thumbnail('medium_large', ['class' => 'blog-card__image', 'loading' => 'lazy']); ?>
-							<?php else : ?>
-								<div class="blog-card__placeholder">
-									<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
+							<?php if (has_post_thumbnail()) : the_post_thumbnail('medium_large', ['class' => 'blog-card__image', 'loading' => 'lazy']);
+							else : ?>
+								<div class="blog-card__placeholder"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
 										<path d="M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3l-2.5-3z" />
 										<circle cx="12" cy="13" r="3" />
-									</svg>
-								</div>
-							<?php endif; ?>
-							<?php $cats = get_the_category();
-							if (!empty($cats)) : ?>
-								<span class="blog-card__cat"><?php echo esc_html($cats[0]->name); ?></span>
-							<?php endif; ?>
+									</svg></div>
+							<?php endif;
+							$cats = get_the_category();
+							if (!empty($cats)) : ?><span class="blog-card__cat"><?php echo esc_html($cats[0]->name); ?></span><?php endif; ?>
 						</div>
 						<div class="blog-card__body">
 							<h2 class="blog-card__title"><?php the_title(); ?></h2>
@@ -62,21 +46,12 @@ $blog_query = new WP_Query([
 					</a>
 				<?php endwhile; ?>
 			</div>
-
 			<?php if ($blog_query->max_num_pages > 1) : ?>
-				<div class="blog-pagination" data-animate="fade-up" data-delay="300">
-					<?php
-					echo paginate_links([
-						'total'     => $blog_query->max_num_pages,
-						'current'   => $paged,
-						'prev_text' => '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg> Previous',
-						'next_text' => 'Next <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>',
-					]);
-					?>
+				<div class="blog-pagination">
+					<?php echo paginate_links(['total' => $blog_query->max_num_pages, 'current' => $paged, 'prev_text' => '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg> Previous', 'next_text' => 'Next <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>']); ?>
 				</div>
-			<?php endif; ?>
-
-		<?php else : ?>
+			<?php endif;
+		else : ?>
 			<div class="blog-empty">
 				<svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
 					<path d="M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3l-2.5-3z" />
@@ -90,5 +65,4 @@ $blog_query = new WP_Query([
 		wp_reset_postdata(); ?>
 	</div>
 </div>
-
 <?php get_footer(); ?>
