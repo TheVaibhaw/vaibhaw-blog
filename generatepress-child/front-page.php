@@ -12,46 +12,49 @@
 		<span class="particle"></span>
 	</div>
 	<div class="hero-grid-overlay" aria-hidden="true"></div>
-	<div class="hero-glow hero-glow--left" aria-hidden="true"></div>
-	<div class="hero-glow hero-glow--right" aria-hidden="true"></div>
 
 	<div class="hero-container">
 		<div class="hero-content">
 			<div class="hero-badge" data-animate="fade-down">
-				<span class="hero-badge__dot"></span>
+				<span class="hero-badge__dot" aria-hidden="true"></span>
 				<span class="hero-badge__text">Tech &bull; Code &bull; Insights</span>
 			</div>
 
 			<h1 class="hero-title" data-animate="fade-up">
 				<span class="hero-title__line">Exploring the World of</span>
 				<span class="hero-title__highlight">
-					<span class="hero-title__typed" id="heroTyped"></span>
+					<span class="hero-title__typed" id="heroTyped" aria-live="polite"></span>
 					<span class="hero-title__cursor" aria-hidden="true">|</span>
 				</span>
 			</h1>
 
 			<p class="hero-description" data-animate="fade-up" data-delay="200">
 				High-performance web development insights on React, Next.js, WordPress, and more. Written by
-				<a href="https://vaibhawkumar.in" target="_blank" rel="noopener">Vaibhaw</a>, a website developer at <strong class="text-white">Tech Prastish Mohali</strong> with roots in <strong class="text-white">Saran, Bihar</strong>. Professional software engineering solutions from Chapra to Mohali.
+				<a href="https://vaibhawkumar.in" target="_blank" rel="noopener noreferrer">Vaibhaw</a>, a website developer at <strong class="text-white">Tech Prastish Mohali</strong> with roots in <strong class="text-white">Saran, Bihar</strong>. Professional software engineering solutions from Chapra to Mohali.
 			</p>
 
 			<div class="hero-actions" data-animate="fade-up" data-delay="400">
 				<a href="<?php echo esc_url(home_url('/blog/')); ?>" class="hero-btn hero-btn--primary">
 					<span>Browse Blog</span>
-					<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+					<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
 						<path d="M5 12h14" />
 						<path d="m12 5 7 7-7 7" />
 					</svg>
 				</a>
 			</div>
-
-
 		</div>
 
 		<div class="hero-visual" data-animate="fade-left">
 			<div class="hero-image-wrapper">
-				<div class="hero-image-glow" aria-hidden="true"></div>
-				<img src="<?php echo esc_url(get_stylesheet_directory_uri() . '/assets/images/hero-visual.png'); ?>" alt="Technology and programming illustration" class="hero-image" width="540" height="540" loading="eager" />
+				<img
+					src="<?php echo esc_url(get_stylesheet_directory_uri() . '/assets/images/hero-visual.png'); ?>"
+					alt="Technology and programming illustration"
+					class="hero-image"
+					width="540"
+					height="540"
+					loading="eager"
+					fetchpriority="high"
+					decoding="async" />
 			</div>
 		</div>
 	</div>
