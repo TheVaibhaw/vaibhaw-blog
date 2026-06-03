@@ -2481,8 +2481,8 @@ footer.entry-meta .post-navigation,
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 24px;
+    animation: fadeInUp 0.8s ease-out 0.3s forwards;
     opacity: 0;
-    transform: translateY(30px);
 }
 
 .blog-card {
@@ -3346,7 +3346,6 @@ footer.entry-meta .post-navigation,
     color: var(--gpc-accent-light);
 }
 
-/* Single Post Navigation */
 .single-post-nav {
     display: flex;
     justify-content: space-between;
@@ -3391,7 +3390,6 @@ footer.entry-meta .post-navigation,
     margin-left: auto;
 }
 
-/* Sidebar Styles */
 .single-sidebar {
     position: sticky;
     top: 100px;
@@ -3420,7 +3418,6 @@ footer.entry-meta .post-navigation,
     border-bottom: 1px solid var(--gpc-border);
 }
 
-/* Latest Posts Widget */
 .sidebar-latest-posts {
     list-style: none;
     padding: 0;
@@ -3469,10 +3466,6 @@ footer.entry-meta .post-navigation,
     padding: 32px 40px;
 }
 
-/* ==========================================================================
-   Search Page Styles
-   ========================================================================== */
-
 .search-page {
     padding: var(--gpc-space-2xl) var(--gpc-container-padding);
     background: var(--gpc-bg);
@@ -3520,10 +3513,6 @@ footer.entry-meta .post-navigation,
     color: var(--gpc-text-muted);
     margin: 0 0 24px;
 }
-
-/* ==========================================================================
-   Responsive Styles for Single Post
-   ========================================================================== */
 
 @media (max-width: 1024px) {
     .single-post-container {
@@ -4299,7 +4288,6 @@ button:active,
     }
 }
 
-/* Large phones / Small tablets (576px - 767px) */
 @media (max-width: 767px) {
     .hero-banner {
         padding: 20px 0 30px;
@@ -4378,7 +4366,6 @@ button:active,
     }
 }
 
-/* Small phones (up to 575px) */
 @media (max-width: 575px) {
     body {
         font-size: 14px;
@@ -4498,7 +4485,6 @@ button:active,
     }
 }
 
-/* Extra small phones (up to 360px) */
 @media (max-width: 360px) {
     .hero-title {
         font-size: 1.4rem;
@@ -4522,7 +4508,6 @@ button:active,
     }
 }
 
-/* Landscape phone orientation */
 @media (max-height: 500px) and (orientation: landscape) {
     .hero-banner {
         min-height: auto;
@@ -4543,7 +4528,6 @@ button:active,
     }
 }
 
-/* Touch device optimizations */
 @media (hover: none) and (pointer: coarse) {
 
     .blog-card:hover,
@@ -4561,7 +4545,6 @@ button:active,
         transform: none;
     }
 
-    /* Increase tap targets */
     .main-navigation .main-nav ul li a {
         padding: 14px 16px !important;
     }
