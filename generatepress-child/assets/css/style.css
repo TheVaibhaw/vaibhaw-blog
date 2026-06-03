@@ -3952,14 +3952,26 @@ a {
     border: none !important;
     outline: none !important;
     box-shadow: none !important;
+    background: transparent !important;
     transition: all var(--gpc-transition);
 }
 
 .blog-search__input:focus,
-.blog-search__input:hover {
+.blog-search__input:hover,
+.blog-search__input:active {
     border: none !important;
     outline: none !important;
     box-shadow: none !important;
+    background: transparent !important;
+}
+
+.blog-search__input:-webkit-autofill,
+.blog-search__input:-webkit-autofill:hover, 
+.blog-search__input:-webkit-autofill:focus, 
+.blog-search__input:-webkit-autofill:active {
+    -webkit-box-shadow: 0 0 0 30px var(--gpc-surface) inset !important;
+    -webkit-text-fill-color: var(--gpc-text) !important;
+    transition: background-color 5000s ease-in-out 0s;
 }
 
 .blog-hero,
