@@ -4320,6 +4320,7 @@ button:active,
 
     .hero-visual {
         max-width: 300px;
+        margin: 0 auto;
     }
 
     .categories-title {
@@ -4417,6 +4418,7 @@ button:active,
 
     .hero-visual {
         max-width: 250px;
+        margin: 0 auto;
     }
 
     .hero-image {
