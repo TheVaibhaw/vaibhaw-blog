@@ -4326,29 +4326,27 @@ button:active,
     }
 
     .blog-search {
-        flex-direction: row;
-        border-radius: 50px;
+        flex-direction: column;
+        padding: 8px;
+        border-radius: 20px;
         width: 100%;
-        padding: 0;
     }
 
     .blog-search__icon {
-        display: block;
-        margin-left: 14px;
+        display: none;
     }
 
     .blog-search__input {
-        width: auto;
-        padding: 12px 14px !important;
-        text-align: left;
-        font-size: 16px !important;
+        width: 100%;
+        padding: 12px 16px !important;
+        text-align: center;
     }
 
     .blog-search__btn {
-        width: auto;
-        margin: 4px;
-        padding: 10px 20px;
-        border-radius: 50px;
+        width: 100%;
+        margin: 8px 0 0 0;
+        padding: 14px 20px;
+        border-radius: 14px;
     }
 
     .blog-grid {
