@@ -197,23 +197,6 @@ img {
     color: var(--gpc-text) !important;
 }
 
-/* Make only the header toggle a square */
-.site-header .menu-toggle,
-.mobile-menu-control-wrapper .menu-toggle {
-    padding: 0 !important;
-    width: 42px !important;
-    height: 42px !important;
-    display: inline-flex !important;
-    justify-content: center !important;
-    align-items: center !important;
-    align-self: center !important;
-}
-
-.site-header .menu-toggle .mobile-menu,
-.mobile-menu-control-wrapper .menu-toggle .mobile-menu {
-    display: none !important;
-}
-
 @media (max-width: 768px) {
     .main-navigation .main-nav ul {
         background: var(--gpc-surface) !important;
