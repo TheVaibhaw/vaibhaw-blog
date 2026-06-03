@@ -4327,6 +4327,7 @@ button:active,
 
     .blog-search {
         flex-direction: row;
+        flex-wrap: nowrap;
         padding: 0;
         border-radius: 50px;
         width: 100%;
@@ -4335,17 +4336,21 @@ button:active,
     .blog-search__icon {
         display: block;
         margin-left: 14px;
+        flex-shrink: 0;
     }
 
     .blog-search__input {
         width: auto;
         flex: 1;
+        min-width: 0;
         padding: 12px 14px !important;
         text-align: left;
     }
 
     .blog-search__btn {
         width: auto;
+        flex-shrink: 0;
+        white-space: nowrap;
         margin: 4px;
         padding: 10px 18px;
         border-radius: 50px;
