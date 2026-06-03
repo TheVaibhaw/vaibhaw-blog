@@ -130,7 +130,7 @@ if (! empty($categories)) : ?>
 
 <?php
 $latest_posts = new WP_Query(array(
-	'posts_per_page' => 5,
+	'posts_per_page' => 6,
 	'post_status'    => 'publish',
 	'orderby'        => 'date',
 	'order'          => 'DESC',
