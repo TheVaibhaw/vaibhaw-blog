@@ -33,7 +33,7 @@ if (!$wp_load) {
 
 require_once $wp_load;
 
-if (!current_user_can('publish_posts')) {
+if (php_sapi_name() !== 'cli' && !current_user_can('publish_posts')) {
     wp_die('You need admin access to run this script.');
 }
 
@@ -76,6 +76,16 @@ foreach ($data['posts'] as $post_data) {
         }
     }
 
+    $author_id = get_current_user_id();
+    if (!$author_id) {
+        $admin_users = get_users(['role' => 'administrator', 'number' => 1]);
+        if (!empty($admin_users)) {
+            $author_id = $admin_users[0]->ID;
+        } else {
+            $author_id = 1;
+        }
+    }
+
     $post_args = [
         'post_title'   => sanitize_text_field($post_data['title']),
         'post_name'    => sanitize_title($post_data['slug']),
@@ -83,8 +93,15 @@ foreach ($data['posts'] as $post_data) {
         'post_excerpt' => sanitize_text_field($post_data['excerpt'] ?? ''),
         'post_status'  => $post_data['status'] ?? 'draft',
         'post_type'    => 'post',
-        'post_author'  => get_current_user_id(),
+        'post_author'  => $author_id,
     ];
+
+    if (!empty($post_data['date'])) {
+        $post_args['post_date'] = sanitize_text_field($post_data['date']);
+    }
+    if (!empty($post_data['date_gmt'])) {
+        $post_args['post_date_gmt'] = sanitize_text_field($post_data['date_gmt']);
+    }
 
     if ($category_id) {
         $post_args['post_category'] = [$category_id];
@@ -142,6 +159,23 @@ foreach ($data['posts'] as $post_data) {
     }
 
     $results['success'][] = $post_data['title'] . ' (ID: ' . $post_id . ')';
+}
+
+if (php_sapi_name() === 'cli') {
+    echo "=== POST GENERATION RESULTS ===\n";
+    echo "Created Successfully: " . count($results['success']) . "\n";
+    foreach ($results['success'] as $item) {
+        echo "  ✓ " . $item . "\n";
+    }
+    echo "Skipped: " . count($results['skipped']) . "\n";
+    foreach ($results['skipped'] as $item) {
+        echo "  ⊘ " . $item . "\n";
+    }
+    echo "Failed: " . count($results['failed']) . "\n";
+    foreach ($results['failed'] as $item) {
+        echo "  ✕ " . $item . "\n";
+    }
+    exit(0);
 }
 ?>
 <!DOCTYPE html>
