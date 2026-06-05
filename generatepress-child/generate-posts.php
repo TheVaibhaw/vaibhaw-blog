@@ -59,7 +59,33 @@ $results = ['success' => [], 'failed' => [], 'skipped' => []];
 foreach ($data['posts'] as $post_data) {
     $existing = get_page_by_path($post_data['slug'], OBJECT, 'post');
     if ($existing) {
-        $results['skipped'][] = $post_data['title'] . ' (already exists)';
+        $post_id = $existing->ID;
+        
+        // Update tags
+        if (!empty($post_data['tags'])) {
+            wp_set_post_tags($post_id, $post_data['tags']);
+        }
+
+        // Update SEO metadata
+        if (!empty($post_data['meta_title'])) {
+            update_post_meta($post_id, '_yoast_wpseo_title', sanitize_text_field($post_data['meta_title']));
+            update_post_meta($post_id, '_seo_title', sanitize_text_field($post_data['meta_title']));
+            update_post_meta($post_id, 'rank_math_title', sanitize_text_field($post_data['meta_title']));
+        }
+
+        if (!empty($post_data['meta_description'])) {
+            update_post_meta($post_id, '_yoast_wpseo_metadesc', sanitize_text_field($post_data['meta_description']));
+            update_post_meta($post_id, '_seo_description', sanitize_text_field($post_data['meta_description']));
+            update_post_meta($post_id, 'rank_math_description', sanitize_text_field($post_data['meta_description']));
+        }
+
+        if (!empty($post_data['focus_keyword'])) {
+            update_post_meta($post_id, '_yoast_wpseo_focuskw', sanitize_text_field($post_data['focus_keyword']));
+            update_post_meta($post_id, '_seo_focus_keyword', sanitize_text_field($post_data['focus_keyword']));
+            update_post_meta($post_id, 'rank_math_focus_keyword', sanitize_text_field($post_data['focus_keyword']));
+        }
+
+        $results['skipped'][] = $post_data['title'] . ' (Updated SEO Meta)';
         continue;
     }
 
@@ -121,16 +147,19 @@ foreach ($data['posts'] as $post_data) {
     if (!empty($post_data['meta_title'])) {
         update_post_meta($post_id, '_yoast_wpseo_title', sanitize_text_field($post_data['meta_title']));
         update_post_meta($post_id, '_seo_title', sanitize_text_field($post_data['meta_title']));
+        update_post_meta($post_id, 'rank_math_title', sanitize_text_field($post_data['meta_title']));
     }
 
     if (!empty($post_data['meta_description'])) {
         update_post_meta($post_id, '_yoast_wpseo_metadesc', sanitize_text_field($post_data['meta_description']));
         update_post_meta($post_id, '_seo_description', sanitize_text_field($post_data['meta_description']));
+        update_post_meta($post_id, 'rank_math_description', sanitize_text_field($post_data['meta_description']));
     }
 
     if (!empty($post_data['focus_keyword'])) {
         update_post_meta($post_id, '_yoast_wpseo_focuskw', sanitize_text_field($post_data['focus_keyword']));
         update_post_meta($post_id, '_seo_focus_keyword', sanitize_text_field($post_data['focus_keyword']));
+        update_post_meta($post_id, 'rank_math_focus_keyword', sanitize_text_field($post_data['focus_keyword']));
     }
 
     if (!empty($post_data['featured_image'])) {
