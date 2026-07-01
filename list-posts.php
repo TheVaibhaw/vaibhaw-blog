@@ -4,8 +4,8 @@
  * using the WordPress REST API.
  *
  * Usage:
- *   CLI:     php list-categories-posts.php
- *   Browser: open list-categories-posts.php in your browser
+ *   CLI:     php list-posts.php
+ *   Browser: open list-posts.php in your browser
  */
 
 $site = 'https://blog.vaibhawkumar.in';
